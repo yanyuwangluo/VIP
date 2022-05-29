@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
 
-## Build 20220525-001-test
-
+## Build 20220528-001-test
+ 
 ## 导入通用变量与函数
 #dir_shell=/ql/shell
 #. $dir_shell/share.sh
 ## 目录
-dir_root=/ql
+dir_root=/ql/data   #新版青龙(新版青龙文件在data文件夹下)
+#dir_root=/ql/data   #老板青龙
 dir_config=$dir_root/config
 dir_scripts=$dir_root/scripts
 dir_log=$dir_root/log
 dir_db=$dir_root/db
-dir_code=$dir_log/code
-
+dir_code=$dir_log/config_code   #新版青龙(需修改运行命令为task /ql/data/config/code.sh)
+#dir_code=$dir_log/code   #老板青龙
+#  413行 442 行  507行  546行修改为互助码按cookie数量生成,防止生成大于cookie总数的互助规则
 ## 预设的仓库及默认调用仓库设置
 ## 将"repo=$repo4"改成repo=$repo4"或其他，以默认调用其他仓库脚本日志
 ## 也可自行搜索本脚本内的"name_js=("和"name_js_only",将"repo"改成"repo2"或其他，用以自由组合调用仓库的脚本日志
@@ -26,13 +28,13 @@ repo7='smiek2221_scripts'                          #预设的 smiek2221 仓库
 repo=""                                            #空值，表示遍历所有仓库脚本日志
 
 ## 调试模式开关，默认是0，表示关闭；设置为1，表示开启
-DEBUG="1"
+DEBUG="0"
 
 ## 本脚本限制的最大线程数量
 proc_num="10"
 
 ## 备份配置文件开关，默认是1，表示开启；设置为0，表示关闭。备份路径 /ql/config/bak/
-BACKUP="0"
+BACKUP="1"
 ## 是否删除指定天数以前的备份文件开关，默认是1，表示开启；设置为0，表示关闭。删除路径 /ql/config/bak/
 CLEANBAK="1"
 ## 定义删除指定天数以前的备份文件
@@ -415,7 +417,7 @@ export_codes_sub() {
                 for ((m = 0; m < ${#pt_pin[*]}; m++)); do
                     tmp_for_other=""
                     j=$((m + 1))
-                    for ((n = 0; n < $user_sum; n++)); do
+                    for ((n = 0; n < ${#pt_pin[*]}; n++)); do
                         [[ $m -eq $n ]] && continue
                         k=$((n + 1))
                         if [[ $BreakHelpType = "1" ]]; then
@@ -508,8 +510,8 @@ local i j k
 if [ ! -f $ShareCode_log ] || [ -z "$(cat $ShareCode_log | grep "^$config_name_my\d")" ]; then
    echo -e "\n## $chinese_name\n${config_name_my}1=''\n" >> $ShareCode_log
 fi
-echo -e "\n#【`date +%X`】 正在更新 $chinese_name 的互助码..."
-for ((i=1; i<=200; i++)); do
+echo -e "\n#【`date +%X`】 正在更新 $chinese_name 的互助1码..."
+for ((i=1; i<=${#pt_pin[*]}; i++)); do
     local new_code="$(cat $latest_log_path | grep "^$config_name_my$i=.\+'$" | sed "s/\S\+'\([^']*\)'$/\1/")"
     local old_code="$(cat $ShareCode_log | grep "^$config_name_my$i=.\+'$" | sed "s/\S\+'\([^']*\)'$/\1/")"
     if [[ $i -le $user_sum ]]; then
@@ -544,11 +546,11 @@ local ShareCode_log="$ShareCode_dir/$config_name.log"
 local i j k
 
 #更新配置文件中的互助规则
-echo -e "\n#【`date +%X`】 正在更新 $chinese_name 的互助规则..."
+echo -e "\n#【`date +%X`】 正在更新 $chinese_name 的互助1规则..."
 if [ -z "$(cat $ShareCode_log | grep "^$config_name_for_other\d")" ]; then
    echo -e "${config_name_for_other}1=\"\"" >> $ShareCode_log
 fi
-for ((j=1; j<=200; j++)); do
+for ((j=1; j<=${#pt_pin[*]}; j++)); do
     local new_rule="$(cat $latest_log_path | grep "^$config_name_for_other$j=.\+\"$" | sed "s/\S\+\"\([^\"]*\)\"$/\1/")"
     local old_rule="$(cat $ShareCode_log | grep "^$config_name_for_other$j=.\+\"$" | sed "s/\S\+\"\([^\"]*\)\"$/\1/")"
     if [[ $j -le $user_sum ]]; then
@@ -596,7 +598,7 @@ export_codes_sub_only(){
             for ((m = 0; m < ${#pt_pin[*]}; m++)); do
                 tmp_my_code=""
                 j=$((m + 1))
-                for ((n = 0; n < ${#code[*]}; n++)); do
+                for ((n = 0; n < ${#pt_pin[*]}; n++)); do
                     if [[ ${pt_pin[m]} == ${pt_pin_in_log[n]} ]]; then
                         tmp_my_code=${code[n]}
                         break
@@ -614,6 +616,7 @@ export_codes_sub_only(){
 
 #更新互助码和互助规则
 update_help(){
+    gen_pt_pin_array
 case $UpdateType in
     1)
         if [ "$ps_num" -le $proc_num ] && [ -f $latest_log_path ]; then
