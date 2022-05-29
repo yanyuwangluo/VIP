@@ -74,34 +74,37 @@ EOF
 #------ 代码区 ------#
 # 🌱拉取仓库或脚本
 CR2() {
-  ql repo https://gh.fakev.cn/JDHelloWorld/jd_scripts.git ""jd_|jx_|getJDCookie"" ""backUp"" ""^jd[^_]|USER|utils|sendNotify|^TS|JD_""
+  ql repo https://gh.fakev.cn/JDHelloWorld/jd_scripts.git "jd_|jx_|getJDCookie" "backUp" "^jd[^_]|USER|utils|sendNotify|^TS|JD_"
 }
 CR3() {
-  ql repo https://gh.fakev.cn/he1pu/JDHelp.git ""jd_|jx_|getJDCookie"" ""activity|backUp|Coupon"" ""^jd[^_]|USER|utils|sendNotify|ZooFaker|JDJRValidator_|^sign""
+  ql repo https://gh.fakev.cn/he1pu/JDHelp.git "jd_|jx_|getJDCookie" "activity|backUp|Coupon" "^jd[^_]|USER|utils|sendNotify|ZooFaker|JDJRValidator_|^sign"
 }
 CR4() {
-  ql repo https://gh.fakev.cn/shufflewzc/faker2.git ""jd_|jx_|gua_|jddj_|jdCookie"" ""activity|backUp"" ""^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|  ql|JDSignValidator|magic"" ""main""
+  ql repo https://gh.fakev.cn/shufflewzc/faker2.git "jd_|jx_|gua_|jddj_|jdCookie" "activity|backUp" "^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator|magic" "main"
+}
+CR4(){
+  ql repo https://github.com/shufflewzc/faker2.git "jd_|jx_|gua_|jddj_|jdCookie" "activity|backUp" "^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator|magic" "main"
 }
 CR5() {
-  ql repo https://gh.fakev.cn/shufflewzc/faker3.git ""jd_|jx_|gua_|jddj_|getJDCookie"" ""activity|backUp|Coupon|update"" ""^jd[^_]|USER|utils|^JS|^TS|^JDJRValidator_|^ZooFaker|^sign|  ql|sentNotify|JDSignValidator|magic"" ""main""
+  ql repo https://gh.fakev.cn/shufflewzc/faker3.git "jd_|jx_|gua_|jddj_|getJDCookie" "activity|backUp|Coupon|update" "^jd[^_]|USER|utils|^JS|^TS|^JDJRValidator_|^ZooFaker|^sign|ql|sentNotify|JDSignValidator|magic" "main"
 }
 CR6() {
-  ql repo https://gh.fakev.cn/Aaron-lv/sync.git ""jd_|jx_|getJDCookie"" ""activity|backUp|Coupon"" ""^jd[^_]|USER|utils|sendNotify|JD_"" ""jd_scripts""
+  ql repo https://gh.fakev.cn/Aaron-lv/sync.git "jd_|jx_|getJDCookie" "activity|backUp|Coupon" "^jd[^_]|USER|utils|sendNotify|JD_" "jd_scripts"
 }
 CR7() {
-  ql repo https://gh.fakev.cn/yuannian1112/jd_scripts.git ""jd_|jx_|getJDCookie"" ""activity|backUp"" ""^jd[^_]|USER|utils""
+  ql repo https://gh.fakev.cn/yuannian1112/jd_scripts.git "jd_|jx_|getJDCookie" "activity|backUp" "^jd[^_]|USER|utils"
 }
 CR8() {
-  ql repo https://gh.fakev.cn/zero205/JD_tencent_scf.git ""jd_|jx_|getJDCookie"" ""backUp|icon"" ""^jd[^_]|USER|sendNotify|sign_graphics_validate|JDJR|JDSign"" ""main""
+  ql repo https://gh.fakev.cn/zero205/JD_tencent_scf.git "jd_|jx_|getJDCookie" "backUp|icon" "^jd[^_]|USER|sendNotify|sign_graphics_validate|JDJR|JDSign" "main"
 }
 CR9() {
-  ql repo https://gh.fakev.cn/okyyds/yyds.git ""jd_|jx_|gua_|jddj_|jdCookie"" ""activity|backUp"" ""^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|  ql|JDSignValidator"" ""master""
+  ql repo https://gh.fakev.cn/okyyds/yyds.git "jd_|jx_|gua_|jddj_|jdCookie" "activity|backUp" "^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator" "master"
 }
 CR10() {
-  ql repo https://gh.fakev.cn/KingRan/KR.git ""jd_|jx_|jdCookie"" ""activity|backUp"" ""^jd[^_]|USER|utils|function|sign|sendNotify|  ql|JDJR""
+  ql repo https://gh.fakev.cn/KingRan/KR.git "jd_|jx_|jdCookie" "activity|backUp" "^jd[^_]|USER|utils|function|sign|sendNotify|ql|JDJR"
 }
 CR11() {
-  ql repo https://gh.fakev.cn/gys619/jdd.git ""jd_|jx_|jddj_|gua_|jddj_|getJDCookie|wskey"" ""activity|backUp"" ""^jd[^_]|USER|utils|ZooFaker_Necklace|JDJRValidator_Pure|sign_graphics_validate|jddj_cookie|function|  ql""
+  ql repo https://gh.fakev.cn/gys619/jdd.git "jd_|jx_|jddj_|gua_|jddj_|getJDCookie|wskey" "activity|backUp" "^jd[^_]|USER|utils|ZooFaker_Necklace|JDJRValidator_Pure|sign_graphics_validate|jddj_cookie|function|ql"
 }
 
 
@@ -112,58 +115,58 @@ done
 
 
 OR2() {
-ql repo https://gh.fakev.cn/curtinlv/JD-Script.git ""jd_"" ""jd_cookie"" ""^jd[^_]|sendNotify|OpenCard|getFollowGifts|getJDCookie""
+ql repo https://gh.fakev.cn/curtinlv/JD-Script.git "jd_" "jd_cookie" "^jd[^_]|sendNotify|OpenCard|getFollowGifts|getJDCookie"
 }
 OR3() {
-ql repo https://gh.fakev.cn/smiek2121/scripts.git ""jd_|gua_"" """" ""^jd[^_]|USER|utils|sendNotify|ZooFaker|JDJRValidator_|^sign|cleancart_""
+ql repo https://gh.fakev.cn/smiek2121/scripts.git "jd_|gua_"  "^jd[^_]|USER|utils|sendNotify|ZooFaker|JDJRValidator_|^sign|cleancart_"
 }
 OR4() {
-ql repo https://gh.fakev.cn/cdle/xdd.git ""jd_"" ""disposable|expired|jdc""
+ql repo https://gh.fakev.cn/cdle/xdd.git "jd_" "disposable|expired|jdc"
 }
 OR5() {
-ql repo https://gh.fakev.cn/ZCY01/daily_scripts.git ""jd_""
+ql repo https://gh.fakev.cn/ZCY01/daily_scripts.git "jd_"
 }
 OR6() {
-ql repo https://gh.fakev.cn/whyour/hundun.git ""quanx"" ""tokens|caiyun|didi|donate|fold|Env""
+ql repo https://gh.fakev.cn/whyour/hundun.git "quanx" "tokens|caiyun|didi|donate|fold|Env"
 }
 OR7() {
-ql repo https://gh.fakev.cn/moposmall/Script.git ""Me""
+ql repo https://gh.fakev.cn/moposmall/Script.git "Me"
 }
 OR8() {
-ql repo https://gh.fakev.cn/Ariszy/Private-Script.git ""JD""
+ql repo https://gh.fakev.cn/Ariszy/Private-Script.git "JD"
 }
 OR9() {
-ql repo https://gh.fakev.cn/photonmang/quantumultX.git ""JDscripts""
+ql repo https://gh.fakev.cn/photonmang/quantumultX.git "JDscripts"
 }
 OR10() {
-ql repo https://gh.fakev.cn/jiulan/platypus.git ""jd_|jx_"" """" "Overdue"" ""main""
+ql repo https://gh.fakev.cn/jiulan/platypus.git "jd_|jx_" "Overdue" "main"
 }
 OR11() {
-ql repo https://gh.fakev.cn/star261/jd.git ""jd_|star"" """" ""code"" ""main""
+ql repo https://gh.fakev.cn/star261/jd.git "jd_|star"  "code" "main"
 }
 OR13() {
-ql repo https://gh.fakev.cn/Tsukasa007/my_script.git ""jd_|jx_"" ""jdCookie|USER_AGENTS|sendNotify|backup"" """" ""master""
+ql repo https://gh.fakev.cn/Tsukasa007/my_script.git "jd_|jx_" "jdCookie|USER_AGENTS|sendNotify|backup"  "master"
 }
 OR14() {
-ql repo https://gh.fakev.cn/mmnvnmm/omo.git ""jd_|rush_|bean_""
+ql repo https://gh.fakev.cn/mmnvnmm/omo.git "jd_|rush_|bean_"
 }
 OR15() {
-ql repo https://gh.fakev.cn/X1a0He/jd_scripts_fixed.git ""jd_"" """" ""^jd[^_]""
+ql repo https://gh.fakev.cn/X1a0He/jd_scripts_fixed.git "jd_"  "^jd[^_]"
 }
 OR16() {
 ql repo https://gh.fakev.cn/chianPLA/xiaoshou.git
 }
 OR17() {
-ql repo https://gh.fakev.cn/hyzaw/scripts.git ""jd_|ql_""
+ql repo https://gh.fakev.cn/hyzaw/scripts.git "jd_|ql_"
 }
 OR18() {
-ql repo https://gh.fakev.cn/Zy143L/wskey.git ""wskey""
+ql repo https://gh.fakev.cn/Zy143L/wskey.git "wskey"
 }
 OR19() {
-ql repo https://gh.fakev.cn/Mashiro2000/HeyTapTask.git """" ""Backup|index|HT.*|sendNotify"" ""HT_config|sendNotify""
+ql repo https://gh.fakev.cn/Mashiro2000/HeyTapTask.git  "Backup|index|HT.*|sendNotify" "HT_config|sendNotify"
 }
 OR20() {
-ql repo https://gh.fakev.cn/ccwav/QLScript2.git ""jd_"" ""NoUsed"" ""ql|sendNotify|utils|USER|jdCookie""
+ql repo https://gh.fakev.cn/ccwav/QLScript2.git "jd_" "NoUsed" "ql|sendNotify|utils|USER|jdCookie"
 }
 
 for i in "${OtherRepo[@]}"; do
