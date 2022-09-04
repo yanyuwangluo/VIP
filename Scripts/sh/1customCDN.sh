@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 ## 本脚本搬运并模仿 liuqitoday
-dir_config=/ql/config
-dir_script=/ql/scripts
-dir_repo=/ql/repo
+dir_config=/ql/data/config
+dir_script=/ql/data/scripts
+dir_repo=/ql/data/repo
 config_shell_path=$dir_config/config.sh
 extra_shell_path=$dir_config/extra.sh
 code_shell_path=$dir_config/code.sh
@@ -120,12 +120,12 @@ set_default_extra() {
 }
 # 将 ql extra 添加到定时任务
 add_ql_extra() {
-    if [ "$(grep -c "ql\ extra" /ql/config/crontab.list)" != 0 ]; then
+    if [ "$(grep -c "ql\ extra" /ql/data/config/crontab.list)" != 0 ]; then
         echo "您的任务列表中已存在 task:ql extra"
     else
         echo "开始添加 task:ql extra"
         # 获取token
-        token=$(cat /ql/config/auth.json | jq --raw-output .token)
+        token=$(cat /ql/data/config/auth.json | jq --raw-output .token)
         curl -s -H 'Accept: application/json' -H "Authorization: Bearer $token" -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept-Language: zh-CN,zh;q=0.9' --data-binary '{"name":"初始化任务","command":"ql extra","schedule":"15 0-23/4 * * *"}' --compressed 'http://127.0.0.1:5700/api/crons?t=1624782068473'
     fi
 }
@@ -194,12 +194,12 @@ set_default_code() {
 }
 # 将 task code.sh 添加到定时任务
 add_task_code() {
-    if [ "$(grep -c "code.sh" /ql/config/crontab.list)" != 0 ]; then
+    if [ "$(grep -c "code.sh" /ql/data/config/crontab.list)" != 0 ]; then
         echo "您的任务列表中已存在 task:task code.sh"
     else
         echo "开始添加 task:task code.sh"
         # 获取token
-        token=$(cat /ql/config/auth.json | jq --raw-output .token)
+        token=$(cat /ql/data/config/auth.json | jq --raw-output .token)
         curl -s -H 'Accept: application/json' -H "Authorization: Bearer $token" -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept-Language: zh-CN,zh;q=0.9' --data-binary '{"name":"格式化更新助力码","command":"task /ql/config/code.sh","schedule":"*/10 * * * *"}' --compressed 'http://127.0.0.1:5700/api/crons?t=1626247939659'
     fi
 }
@@ -255,12 +255,12 @@ fi
 
 # 添加定时任务 ql bot
 add_ql_bot() {
-    if [ "$(grep -c "ql\ bot" /ql/config/crontab.list)" != 0 ]; then
+    if [ "$(grep -c "ql\ bot" /ql/data/config/crontab.list)" != 0 ]; then
         echo "您的任务列表中已存在 task:ql bot"
     else
         echo "开始添加 task:ql bot"
         # 获取token
-        token=$(cat /ql/config/auth.json | jq --raw-output .token)
+        token=$(cat /ql/data/config/auth.json | jq --raw-output .token)
         curl -s -H 'Accept: application/json' -H "Authorization: Bearer $token" -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept-Language: zh-CN,zh;q=0.9' --data-binary '{"name":"拉取机器人","command":"ql bot","schedule":"13 14 * * *"}' --compressed 'http://127.0.0.1:5700/api/crons?t=1626247933219'
     fi
 }
@@ -301,12 +301,12 @@ fi
 
 # 添加定时任务 自动更新模板
 add_curl_sample() {
-    if [ "$(grep -c "config.sample.sh" /ql/config/crontab.list)" != 0 ]; then
+    if [ "$(grep -c "config.sample.sh" /ql/data/config/crontab.list)" != 0 ]; then
         echo "您的任务列表中已存在 task:自动更新模板"
     else
         echo "开始添加 task:curl config.sample.sh"
         # 获取token
-        token=$(cat /ql/config/auth.json | jq --raw-output .token)
+        token=$(cat /ql/data/config/auth.json | jq --raw-output .token)
         curl -s -H 'Accept: application/json' -H "Authorization: Bearer $token" -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept-Language: zh-CN,zh;q=0.9' --data-binary '{"name":"自动更新模板","command":"curl -L https://raw.githubusercontents.com/yanyuwangluo/VIP/main/Conf/Qinglong/config.sample.sh -o /ql/sample/config.sample.sh && cp -rf /ql/sample/config.sample.sh /ql/config","schedule":"45 6,18 * * *"}' --compressed 'http://127.0.0.1:5700/api/crons?t=1627380635389'
     fi
 }
