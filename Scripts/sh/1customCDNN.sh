@@ -195,13 +195,13 @@ set_default_code() {
 }
 # 将 task code.sh 添加到定时任务
 add_task_code() {
-    if [ "$(grep -c "code.sh" /ql/config/crontab.list)" != 0 ]; then
+    if [ "$(grep -c "code.sh" /ql/data/config/crontab.list)" != 0 ]; then
         echo "您的任务列表中已存在 task:task code.sh"
     else
         echo "开始添加 task:task code.sh"
         # 获取token
-        token=$(cat /ql/config/auth.json | jq --raw-output .token)
-        curl -s -H 'Accept: application/json' -H "Authorization: Bearer $token" -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept-Language: zh-CN,zh;q=0.9' --data-binary '{"name":"格式化更新助力码","command":"task /ql/config/code.sh","schedule":"*/10 * * * *"}' --compressed 'http://127.0.0.1:5600/api/crons?t=1697961933000'
+        token=$(cat /ql/data/config/auth.json | jq --raw-output .token)
+        curl -s -H 'Accept: application/json' -H "Authorization: Bearer $token" -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept-Language: zh-CN,zh;q=0.9' --data-binary '{"name":"格式化更新助力码","command":"task /ql/data/config/code.sh","schedule":"*/10 * * * *"}' --compressed 'http://127.0.0.1:5600/api/crons?t=1697961933000'
     fi
 }
 if [ "${all}" = 1 ]; then
@@ -308,11 +308,11 @@ add_curl_sample() {
         echo "开始添加 task:curl config.sample.sh"
         # 获取token
         token=$(cat /ql/data/config/auth.json | jq --raw-output .token)
-        curl -s -H 'Accept: application/json' -H "Authorization: Bearer $token" -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept-Language: zh-CN,zh;q=0.9' --data-binary '{"name":"自动更新模板","command":"curl -L https://git.metauniverse-cn.com/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Conf/Qinglong/config.sample.sh -o /ql/data/sample/config.sample.sh && cp -rf /ql/data/sample/config.sample.sh /ql/config","schedule":"45 6,18 * * *"}' --compressed 'http://127.0.0.1:5600/api/crons?t=1697961933000'
+        curl -s -H 'Accept: application/json' -H "Authorization: Bearer $token" -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept-Language: zh-CN,zh;q=0.9' --data-binary '{"name":"自动更新模板","command":"curl -L https://git.metauniverse-cn.com/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Conf/Qinglong/config.sample.sh -o /ql/data/sample/config.sample.sh && cp -rf /ql/data/sample/config.sample.sh /ql/data/config","schedule":"45 6,18 * * *"}' --compressed 'http://127.0.0.1:5600/api/crons?t=1697961933000'
     fi
 }
 run_curl_sample() {
-    curl -sL $valid_url -o /ql/sample/config.sample.sh && cp -rf /ql/sample/config.sample.sh /ql/config
+    curl -sL $valid_url -o /ql/sample/config.sample.sh && cp -rf /ql/sample/config.sample.sh /ql/data/config
 }
 if [ "${all}" = 1 ]; then
     get_valid_config && add_curl_sample && run_curl_sample
